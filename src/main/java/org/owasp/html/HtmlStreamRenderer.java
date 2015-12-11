@@ -192,7 +192,7 @@ public class HtmlStreamRenderer implements HtmlStreamEventReceiver {
         error("Invalid attr name", name);
         continue;
       }
-      output.append(' ').append(name).append('=').append('"');
+      output.append(' ').append(name).append('=');
       Encoding.encodeHtmlAttribOnto(value, output);
       if (value.indexOf('`') != -1) {
         // Apparently, in quirks mode, IE8 does a poor job producing innerHTML
@@ -210,7 +210,6 @@ public class HtmlStreamRenderer implements HtmlStreamEventReceiver {
         // nodeB.innerHTML.
         output.append(' ');
       }
-      output.append('"');
     }
 
     // Limit our output to the intersection of valid XML and valid HTML5 when
